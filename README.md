@@ -1,1 +1,1 @@
-#Quarentine Study :D
+#Quarantine Study :D
