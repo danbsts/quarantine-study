@@ -1,3 +1,6 @@
 [submodule "docker/udemy-docker-mastery"]
 	path = docker/udemy-docker-mastery
 	url = git@github.com:BretFisher/udemy-docker-mastery.git
+[submodule "micronaut-examples"]
+	path = micronaut-examples
+	url = git@github.com:micronaut-projects/micronaut-examples.git
