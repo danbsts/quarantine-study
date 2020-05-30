@@ -7,14 +7,27 @@ import withClass from '../../../hoc/withClass'
 // if using a version of scripts > 2.0 just rename the css file to Person.module.css
 
 class Person extends Component {
+    constructor(props) {
+        super(props);
+        this.inputElementRef = React.createRef();
+    }
+
+    componentDidMount() {
+        // this.inputElement.focus();
+        this.inputElementRef.current.focus();
+    }
+    
     render() {
         console.log('[Person.js] rendering...');    
         return (
             // you can use React.Fragment - same wrapping
             <Aux>
-                <p onClick={this.props.click}>I'm {this.props.name}, and I'm {this.props.age} years old!</p>
-                <p>{this.props.children}</p>
+                <p onClick={this.props.click} key="i1">I'm {this.props.name}, and I'm {this.props.age} years old!</p>
+                <p key="i2">{this.props.children}</p>
                 <input 
+                    key="i3"
+                    // ref={(inputEl) => {this.inputElement = inputEl}}
+                    ref={this.inputElementRef}
                     type="text" 
                     onChange={this.props.changed} 
                     value={this.props.name}/>
