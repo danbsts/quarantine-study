@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import classes from './Cockpit.css'
-import AuthContext from '../../context/auth-context'
+import AuthContext from '../../context/auth-context';
 
 const cockpit = (props) => {
     const toggleBtnRef = useRef();
-
+    const authContext = useContext(AuthContext);
 
     //runs when the data inside the array changes
     useEffect(() => {
@@ -49,9 +49,7 @@ const cockpit = (props) => {
             <button ref={toggleBtnRef} className={btnClass} onClick={props.clicked}>
             Toggle Persons
             </button >
-            <AuthContext.Consumer>
-                {(context) => <button onClick={context.login}>Log in</button>}
-            </AuthContext.Consumer>
+            <button onClick={authContext.login}>Log in</button>
         </div>
     );
 };
