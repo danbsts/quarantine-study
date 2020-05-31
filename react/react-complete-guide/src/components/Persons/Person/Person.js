@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classes from './Person.css';
 import Aux from '../../../hoc/Aux';
 import withClass from '../../../hoc/withClass'
+import AuthContext from '../../../context/auth-context'
 // if using a version of scripts > 2.0 just rename the css file to Person.module.css
 
 class Person extends Component {
@@ -22,6 +23,11 @@ class Person extends Component {
         return (
             // you can use React.Fragment - same wrapping
             <Aux>
+                <AuthContext.Consumer>
+                    {(context) => 
+                        context.authenticated ? <p>Authenticated!</p> : <p>Please log in!</p>
+                    }
+                </AuthContext.Consumer>
                 <p onClick={this.props.click} key="i1">I'm {this.props.name}, and I'm {this.props.age} years old!</p>
                 <p key="i2">{this.props.children}</p>
                 <input 
