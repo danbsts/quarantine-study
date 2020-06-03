@@ -8,6 +8,14 @@ import FullPost from "./FullPost/FullPost";
 import './Blog.css';
 
 class Blog extends Component {
+    state = {
+        auth: true
+    }
+
+    componentDidMount() {
+        // if(!this.state.auth) this.props.history.replace('/posts');
+    }
+
     render () {
         return (
             <div className="Blog ">
@@ -34,9 +42,10 @@ class Blog extends Component {
                 </header>
                 <Switch>
                     {/*order here matter!!*/}
-                    <Route path="/new-post" component={NewPost}/>
+                    {this.state.auth? <Route path="/new-post" component={NewPost}/> : null}
                     <Route path="/posts" component={Posts}/>
-                    <Redirect from="/" to="/posts" />
+                    <Route render={() => <h1>Not found!</h1>}/>
+                    {/*<Redirect from="/" to="/posts" />*/}
                     {/*<Route path="/" component={Posts}/>*/}
                 </Switch>
             </div>

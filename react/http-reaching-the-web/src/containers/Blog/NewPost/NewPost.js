@@ -26,7 +26,9 @@ class NewPost extends Component {
             .then(response => {
                 console.log(response);
             });
-        this.setState({submitted: true});
+        // this.setState({submitted: true});
+        // this.props.match.history.replace("/");
+        this.props.match.history.push("/");
     }
 
     render () {
